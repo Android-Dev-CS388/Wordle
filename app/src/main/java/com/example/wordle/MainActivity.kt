@@ -21,9 +21,7 @@ import org.w3c.dom.Text
 class MainActivity : AppCompatActivity() {
     var counter = 1
     var guessStreak = 0
-
-    //    var wordToGuess = FourLetterWordList.getRandomFourLetterWord();
-        var wordToGuess = "TEST"
+    var wordToGuess = FourLetterWordList.getRandomFourLetterWord();
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (currentFocus != null) {
@@ -67,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
 
         button.setOnClickListener{
+            Log.d("TAG", "${wordToGuess}")
             val value = input.text.toString().uppercase()
             input.setText("")
 
@@ -151,7 +150,7 @@ class MainActivity : AppCompatActivity() {
             answer.text = ""
             streakView.visibility = View.INVISIBLE
             streakView.text = ""
-//            wordToGuess = FourLetterWordList.getRandomFourLetterWord();
+            wordToGuess = FourLetterWordList.getRandomFourLetterWord();
             resetButton.visibility = View.INVISIBLE
             button.visibility = View.VISIBLE
             counter = 1
